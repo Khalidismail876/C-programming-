@@ -45,8 +45,26 @@ else
 }
 
 question 4 Find the largest of three numbers
-
 #include <stdio.h>
+
+int main(void) {
+int num1, num2, num3;
+printf("Enter three numbers");
+scanf("%d %d %d", &num1, &num2, &num3);
+printf("1st number = %d 2nd number = %d 3rd number = %d  ", num1, num2, num3);
+if (num1 >= num2 && num1 >= num3) 
+        printf("The 1st number is the greatest among three."); 
+  
+    if (num2 >= num1 && num2 >= num3) 
+        printf("The 2nd number is the greatest among three"); 
+  
+    if (num3 >= num1 && num3 >= num2) 
+        printf("The 3rd number is the greatest among three"); 
+  
+    return 0; 
+} 
+
+**** #include <stdio.h> // this is an extra one
 
 int main(void) {
 int num1, num2, num3;
@@ -68,4 +86,138 @@ else{
 return 0;
 }
 
-question 5
+question 5 Determining the quadrant of a coordinate 
+
+#include <stdio.h>
+
+int main(void) {
+  int x;
+  int y;
+  printf("Enter X and Y coordinate");
+  scanf("%d %d", &x, &y);
+  if (x > 0 && y > 0)
+    printf("The coordinate point (%d, %d)lies in the first quadrant.\n", x, y);
+  else if (x < 0 && y > 0)
+    printf("The coordinate point (%d, %d)lies in the Second quadrant.\n", x, y);
+  else if(x > 0 && y < 0)
+    printf("The coordinate point (%d, %d)lies in the Third quadrant.\n", x, y);
+  else
+    printf("The coordinate point (%d, %d)lies in the Forth quadrant.\n", x, y);
+    return 0; 
+  
+} 
+
+Question 6 Eligibility of admission
+
+#include <stdio.h>
+
+int main(void) {
+  int math, phy, chem;
+  printf("Input the marks obtained in Math.\n");
+  scanf("%d", &math);
+  printf("Input the marks obtained in Physics.\n");
+  scanf("%d", &phy);
+  printf("Input the marks obtained in Chemistry.\n");
+  scanf("%d", &chem);
+  if (math >= 65 && phy >= 55 && chem >= 50){
+    if ((math+phy+chem) >= 180 || (math+phy) >= 140)
+      printf("The Candidate is eligible for admission.\n");
+    else 
+      printf("The Candidate is not eligible for admission.\n");
+  }
+  else 
+    printf("The Candidate is not eligible for admission.\n");
+    return 0; 
+  
+} 
+question 7 temperature state
+
+#include <stdio.h>
+
+int main(void) {
+int temp;
+printf("Enter the temperature.\n");
+scanf("%d", &temp);
+if (temp<0)
+  printf("Freezing weather.\n");
+else if(temp >= 0 && temp<10)
+  printf("very cold weather.\n");
+else if(temp >= 10 && temp<20)
+  printf("cold weather.\n");
+else if(temp >= 20 && temp<30)
+  printf("normsl weather.\n");
+else if(temp >= 30 && temp<40)
+  printf("Its hot.\n");
+else 
+  printf("Its very hot.\n");
+    return 0; 
+  
+} 
+
+question 8 Determinig if a triangle is equilateral, isosceles, or scalene
+
+#include <stdio.h>
+
+int main(void) {
+int tri1, tri2, tri3;
+printf("Enter the angles of the triangle");
+scanf("%d %d %d", &tri1, &tri2, &tri3);
+if (tri1 == tri2 && tri2 == tri3)
+  printf("This is Equilateral triangle");
+else if (tri1 == tri2 || tri1 == tri3 || tri2 == tri3)
+  printf("This is isosceles triangle");
+else
+  printf("This is Scalene triangle");
+    return 0; 
+  
+} 
+
+Question 9 Checking if a triangle is valid or not
+
+#include <stdio.h>
+
+int main(void) {
+int tri1, tri2, tri3;
+printf("Enter the angles of the triangle");
+scanf("%d %d %d", &tri1, &tri2, &tri3);
+if ((tri1+tri2+tri3) == 180)
+  printf("The triangle is valid");
+else
+  printf("The triangle is not valid");
+  return 0;
+} 
+
+Question 10 Calculating and printing electricity bills
+
+#include <stdio.h>
+
+int main(void) {
+int id, un;
+char name[25];
+float charg, sur=0, mul, B;
+printf("Enter your IDNO, your name, and the Unit consumed.\n");
+scanf("%d %s %d", &id, name, &un);
+printf("Customer IDNO: %d.\n", id);
+printf("Customer Name: %s.\n", name);
+printf("Unit Consumed: %d.\n", un);
+if (un < 200)
+  charg = 1.20;
+else if(un >= 200 && un < 400)
+  charg = 1.50;
+else if(un >= 400 && un < 600)
+  charg = 1.80;
+else
+  charg = 2.00;
+
+mul = un*charg;
+if (mul>300)
+sur = mul*15/100.0;
+B = mul+sur;
+if (B  < 100)
+B =100;
+
+printf("Amount Charges @Rs. %4.2f  per unit :%8.2f\n",charg,mul);
+printf("Surchage Amount                     :%8.2f\n",sur);
+printf("Net Amount Paid By the Customer     :%8.2f\n",B);
+  return 0;
+} 
