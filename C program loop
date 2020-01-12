@@ -1,0 +1,232 @@
+Question 1
+``
+#include <stdio.h>
+int main(void)
+{      
+ int num, lim, sum=0; //defining all our variables
+  float avg;//we need our avg to have one decimal place
+  printf("Enter 10 numbers : \n");
+  for (lim=1;lim<=10;lim++) /* we need to keep our lim from 1 to 100 */
+  {
+    scanf("%d",&num); // asking for input
+    sum +=num; // sum all the 10 numbers
+  }
+  avg=sum/10.0; // devide the sum by 10 to get the avg
+  printf("The sum of 10 numbers is : %d\nThe Average is : %f\n",sum,avg);
+ 
+return 0;
+}
+
+``
+
+question 2
+``
+#include <stdio.h>
+
+int main(void) {
+  int num, max, cube=0; // defining our variables
+  printf("Input number of term\n");
+  scanf("%d", &num);// the input
+  for (max=1;max<=num;max++){ /*using for loop to keep our lim*/
+    cube=num*num*num;/*cubing the num by multiplying itself three times*/
+    
+  }
+  printf("Number is : %d and cube of the %d is %d", num, num, cube);
+  return 0;
+}
+``
+
+question 3
+``
+#include <stdio.h>
+
+int main(void) {
+  int num, max, fac=1; // defining our variables
+  printf("Enter a number\n");
+  scanf("%d", &num);// the input
+  for (max=1;max<=num;max++){ /*using for loop to keep our lim*/
+    fac*=max;/*its multiplying the number before with the given number*/
+    
+  }
+  printf("The factorial of %d is : %d ", num, fac);
+  return 0;
+}
+``
+
+Question 4
+
+`
+#include <stdio.h>
+
+int main(void) {
+  int num, max; // defining our variables
+  float fac; // this makes our answer decimal form
+  double har=0.0; // using double to represent fruction
+  printf("Enter a number\n");
+  scanf("%d", &num);// the input
+  for (max=1;max<=num;max++){ /*using for loop to keep our lim*/
+    fac=(1.0/max);//using this variable to hold the input
+    har+=fac;/*adds all the numbers until the number given*/
+    
+  }
+  printf("Sum of Series upto %d terms : %f ", num, har);
+  return 0;
+}
+`
+
+Question 5
+
+`
+#include <stdio.h>
+
+int main(void) {
+  int num, max; /* defining our variables for loop and input */
+  long int add=0; // keeping all the addition values
+  long int init=1; // the first number or initial num
+  printf("Enter a number\n");
+  scanf("%d", &num);// the input
+  for (max=0;max<num;max++){ /*using for loop to keep our lim*/
+    printf("%ld", init);
+    if (max<num-1) // this prints the sign within all the number 
+      printf(" + ");
+    add+=init;/*adds all the numbers until the number given*/
+    init=(init*10)+1; // the next number after the initial, increasing
+    
+  }
+  printf("\nThe Sum is  : %ld ", add);
+  return 0;
+}
+`
+
+Question 6
+
+`
+#include<stdio.h>
+  int main(void){
+    int add=0,init,lim; //storing the initial, limits, and addition 
+    int st,fin; // the ranges we need to check
+    printf("\n Input the starting range or number : ");
+    scanf("%d",&st); // input one
+    printf("\n Input the ending range of number : ");
+    scanf("%d",&fin); // input two
+    printf("\n Perfect numbers between the given range are:");
+    for(lim=st; lim<=fin;lim++){ //loop for our ranges
+      init=1; // we check if our initial is smaller or bigger than one
+      while(init<=(lim/2)){ // while this statement is true we need to run the code below
+        if(lim % init == 0) // checking if lim divide by init is 0, if yes then the code below is true
+          add+=init; // additing all factors 
+          init++; //increasing the initial by 1
+          }
+        if(add==lim) // if the addition of the initial is equal to limits then we print the limits
+          printf(" %d ",lim);
+          add=0; // restart 
+      }
+    return 0;
+    }
+`
+
+Question 7
+
+`
+#include<stdio.h> // I couldn't write this code so I got help from the internet. its from programiz
+int main() {
+    int rows, coef=1, space, max, j; // defining variables
+    printf("Enter number of rows: ");
+    scanf("%d", &rows); // asking for input
+    for (max=0; max<rows; max++) { // first loop with counts the number of rows
+        for (space=1; space <= rows-max; space++)//this loop is for the spacing in order to create a triangle
+            printf("  ");
+        for (j=0; j<=max; j++) { // this loop is for the number that goes to each row
+            if (j==0 || max==0) // checking if either are zero 
+                coef = 1;//if yes then coef is 1, this is the number for the first row
+            else
+                coef=coef*(max-j+1)/j;//if its not equal to 0 then it creates the other rows numbers
+            printf("%4d", coef);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+`
+
+Question 8
+
+`
+#include <stdio.h>
+int main() {
+    int num, sum = 0, rem; //defining our variables
+    printf("Enter an integer: ");
+    scanf("%d", &num); // input 
+    while (num != 0) { // this loop will continue as long as num is not 0
+        rem = num % 10; // we need to get the last number and in order to do this we need to use the modulo to find the remainder
+        sum = sum * 10 + rem; // we store the remainder in the sum variable 
+        num=num/10; // we divide the rest of the number by 10, then the loop restarts
+    }
+    printf("Reversed number = %d", sum); // printing all the stored values from the first to last thus reversing the numbers
+    return 0;
+}
+`
+
+QUestion 9
+
+`
+#include <stdio.h>
+#include<string.h>
+int main() {
+  char letters[100], temp; // defining the variable for our characters
+  int init, last; // defining the variables for the first letter and the last letter
+  printf("Enter a string: ");
+  scanf("%s", letters); // input 
+  init=0; // asigning the first character to init
+  last=strlen(letters)-1; // using strlen to define last
+  while (init<last) { // while last is bigger or behind init then do the following
+    temp=letters[init];// variable temp is equal to the first letter
+    letters[init]=letters[last]; // last letter is equal to first letter, switching the two letters
+    letters[last]=temp;// swapping the two letters
+    init++; // init moves to the second letter
+    last--; // last comes back to second to last letter and the loop restarts
+    }
+    printf("Reversed string= %s", letters); // printing the letters
+    return 0;
+}
+`
+
+Question 10
+
+`
+#include<stdio.h>
+#define ROT 13
+/* this code was a bit hard for me so I got help from internet. URL: http://www.learntosolveit.com/cprogramming/rot13.html */
+int main(void)
+{
+    int c,e;
+
+    while((c=getchar())!=EOF)
+    {
+        if(c >='A' && c <='Z')
+        {
+            if((e = c + ROT) <= 'Z')
+                putchar(e);
+            else
+            {
+                   e = c - ROT;
+                putchar(e);
+            }
+        }
+        else if(c >='a' && c <='z')
+        {
+            if((e= c + ROT) <= 'z')
+                putchar(e);
+            else
+            {
+                e = c - ROT;
+                putchar(e);
+            }
+        }
+        else
+            putchar(c);
+    }
+
+return 0;
+}
+`
